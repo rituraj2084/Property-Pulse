@@ -2,7 +2,7 @@ import '@/assets/styles/globals.css';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 export const metadata = {
-  title: 'Property Pulse',
+  title: 'PropertyPulse',
   keywords: 'rental, property, real-estate',
   description: 'Find the perfect rental property',
 };
