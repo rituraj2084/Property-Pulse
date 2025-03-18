@@ -8,9 +8,8 @@ import {
   FaBed,
 } from 'react-icons/fa';
 const PropertyCard = ({ property }) => {
-  const { _id, type, name, beds, baths, square_feet, location, rates } =
-    property;
   const getRateDispaly = () => {
+    const { rates } = property;
     if (rates.monthly) {
       return `$${rates.monthly.toLocaleString()}/mo`;
     } else if (rates.weekly) {
@@ -31,8 +30,8 @@ const PropertyCard = ({ property }) => {
       />
       <div className="p-4">
         <div className="text-left md:text-center lg:text-left mb-6">
-          <div className="text-gray-600">{type}</div>
-          <h3 className="text-xl font-bold">{name}</h3>
+          <div className="text-gray-600">{property?.type}</div>
+          <h3 className="text-xl font-bold">{property?.name}</h3>
         </div>
         <h3 className="absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-blue-500 font-bold text-right md:text-center lg:text-right">
           {getRateDispaly()}
@@ -40,16 +39,17 @@ const PropertyCard = ({ property }) => {
 
         <div className="flex justify-center gap-4 text-gray-500 mb-4">
           <p>
-            <FaBed className="md:hidden lg:inline" /> {beds}{' '}
+            <FaBed className="md:hidden lg:inline" /> {property?.beds}{' '}
             <span className="md:hidden lg:inline">Beds</span>
           </p>
           <p>
-            <FaBath className="md:hidden lg:inline" /> {baths}{' '}
+            <FaBath className="md:hidden lg:inline" /> {property?.baths}{' '}
             <span className="md:hidden lg:inline">Baths</span>
           </p>
           <p>
             <FaRulerCombined className="md:hidden lg:inline" />
-            {square_feet} <span className="md:hidden lg:inline">sqft</span>
+            {property?.square_feet}{' '}
+            <span className="md:hidden lg:inline">sqft</span>
           </p>
         </div>
 
@@ -69,11 +69,11 @@ const PropertyCard = ({ property }) => {
             <FaMapMarker className="text-orange-700 mt-1" />
             <span className="text-orange-700">
               {' '}
-              {location?.city} {location?.state}{' '}
+              {property?.location?.city} {property?.location?.state}{' '}
             </span>
           </div>
           <Link
-            href={`/properties/${_id}`}
+            href={`/properties/${property?._id}`}
             className="h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm"
           >
             Details
