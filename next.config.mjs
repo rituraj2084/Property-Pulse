@@ -8,6 +8,11 @@ const nextConfig = {
         hostname: 'lh3.googleusercontent.com', //Restricts images to this specific domain.
         pathname: '**', // The wildcard (**) allows images from any path on this domain.
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        pathname: '**',
+      },
     ],
   },
 };
