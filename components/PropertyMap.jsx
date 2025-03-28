@@ -59,7 +59,7 @@ const PropertyMap = ({ property }) => {
 
   if (geocodeError)
     return <div className="text-xl">No location data found!</div>;
-  console.log(longitude, latitude);
+
   return (
     !loading && (
       <Map
