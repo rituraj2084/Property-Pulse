@@ -27,6 +27,7 @@ const BookmarkButton = ({ property }) => {
   const handleBookmarkClick = async () => {
     if (!userId) {
       toast.error('You need to be signed in to bookmark a listing!');
+      return;
     }
     bookmarkProperty(property._id).then((res) => {
       if (res.error) return toast.error(res.error);
